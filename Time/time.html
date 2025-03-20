@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Time</title>
+  </head>
+  <body>
+    <h2>Cadastro de Time</h2>
+    <form id="formTime">
+      <p>
+        Nome Time:
+        <input type="text" placeholder="Nome time" id="nomeTime" />
+      </p>
+
+      <p>
+        Nome Abreviado:
+        <input type="text" placeholder="Nome abreviado" id="nomeAbreviado" />
+      </p>
+      <input type="button" onclick="salvar(event)" value="cadadastrar" />
+    </form>
+<hr/>
+    <table border = "1">
+        <thead>
+            <tr>
+                <th>Nome Time</th>
+                <th>Nome Abreviado</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tbTimes">
+        </tbody>
+    </table>
+  </body>
+<script type="text/javascript" src="time.js">
+
+</script>
+</html>
