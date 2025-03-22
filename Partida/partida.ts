@@ -7,10 +7,19 @@ JSON.parse(localStorage.getItem("campeonatos") || "[]").forEach((c: Campeonato) 
     (document.getElementById("campeonato") as HTMLFormElement).innerHTML += `<option>${c.nome}</option>`
 });
 
+JSON.parse(localStorage.getItem("times") || "[]").forEach((t: Time) => {
+  (document.getElementById("time1") as HTMLFormElement).innerHTML += `<option>${t.nomeTime}</option>`
+});
+
+JSON.parse(localStorage.getItem("times") || "[]").forEach((t: Time) => {
+  (document.getElementById("time2") as HTMLFormElement).innerHTML += `<option>${t.nomeTime}</option>`
+});
+
+
 interface Partida {
   id: number;
-  timeMandante: string;
-  timeVisitante: string;
+  time1: string;
+  time2: string;
   campeonato: string;
   dataJogo: string;
 }
@@ -21,8 +30,8 @@ function atualizarTabelaPartidas() {
     partidas.forEach((p : Partida)  =>{
       tabelaPartida.innerHTML += `
       <tr>
-           <td>${p.timeMandante}</td>
-           <td>${p.timeVisitante}</td>
+           <td>${p.time1}</td>
+           <td>${p.time2}</td>
            <td>${p.campeonato}</td>
            <td>${p.dataJogo}</td>
            <td>
@@ -39,8 +48,8 @@ function editarPartida(id:number) {
     const partida = partidas.find((p : Partida) => p.id == id);
     if(!partida) return;
   
-    (document.getElementById("timeMandante") as HTMLInputElement).value = partida.timeMandante;
-    (document.getElementById("timeVisitante") as HTMLInputElement).value = partida.timeVisitante;
+    (document.getElementById("time1") as HTMLSelectElement).value = partida.time1;
+    (document.getElementById("time2") as HTMLSelectElement).value = partida.time2;
     (document.getElementById("campeonato") as HTMLSelectElement).value = partida.campeonato;
     (document.getElementById("dataJogo") as HTMLInputElement).value = partida.dataJogo;
   
@@ -77,8 +86,8 @@ function editarPartida(id:number) {
     event?.preventDefault(); //cancelar o disparo do evento
     const novoPartida: Partida = {
         id: Date.now(),
-        timeMandante: (document.getElementById("timeMandante") as HTMLInputElement).value,
-        timeVisitante: (document.getElementById("timeVisitante") as HTMLInputElement).value,
+        time1: (document.getElementById("time1") as HTMLSelectElement).value,
+        time2: (document.getElementById("time2") as HTMLSelectElement).value,
         campeonato: (document.getElementById("campeonato") as HTMLSelectElement).value,
         dataJogo: (document.getElementById("dataJogo") as HTMLInputElement).value,
     };

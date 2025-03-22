@@ -1,7 +1,5 @@
 //Variáveis globais
-var formCampeonato = document.getElementById(
-  "formCampeonato"
-) as HTMLFormElement;
+var formCampeonato = document.getElementById("formCampeonato") as HTMLFormElement;
 var tabelaCampeonato = document.getElementById("tbCampeonatos") as HTMLElement;
 var campeonatos = JSON.parse(localStorage.getItem("campeonatos") || "[]");
 

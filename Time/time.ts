@@ -61,7 +61,7 @@ interface Time {
     event?.preventDefault(); //cancelar o disparo do evento
     const novoTime: Time = {
         id: Date.now(),
-        nomeTime: (document.getElementById("timeAbreviado") as HTMLInputElement).value,
+        nomeTime: (document.getElementById("nomeTime") as HTMLInputElement).value,
         nomeAbreviado: (document.getElementById("nomeAbreviado") as HTMLInputElement).value,
     };
     times.push(novoTime)
